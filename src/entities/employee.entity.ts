@@ -9,5 +9,5 @@ export class Employee {
   name: string;
 
   @ManyToOne(() => Employee, { onDelete: 'SET NULL' })
-  manage: Employee;
+  manager: Employee;
 }
