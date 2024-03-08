@@ -1,6 +1,7 @@
-import { Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Employee } from './employee.entity';
 
+@Entity()
 export class Task {
   @PrimaryGeneratedColumn()
   id: number;
@@ -9,6 +10,5 @@ export class Task {
   name: string;
 
   @ManyToOne(() => Employee, { onDelete: 'SET NULL' })
-  @JoinColumn()
-  employeeId: number;
+  assignee: Employee;
 }
