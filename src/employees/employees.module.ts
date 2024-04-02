@@ -5,10 +5,11 @@ import { ContactInfo } from './entities/contact-info.entity';
 import { Employee } from './entities/employee.entity';
 import { CqrsModule } from '@nestjs/cqrs';
 import { QueryHandler } from './queries';
+import { CommandHandlers } from './commands';
 
 @Module({
   imports: [CqrsModule, TypeOrmModule.forFeature([Employee, ContactInfo])],
   controllers: [EmployeesController],
-  providers: [...QueryHandler],
+  providers: [...QueryHandler, ...CommandHandlers],
 })
 export class EmployeesModule {}
